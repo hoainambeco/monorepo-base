@@ -1,0 +1,36 @@
+version: '3.9'
+services:
+
+  job-runner:
+    build:
+      context: ./
+      dockerfile: ./apps/job-runner/Dockerfile
+    # depends_on:
+    #   - redis
+    #   - postgres
+    restart: always
+    volumes:
+      - ./node_modules:/app/node_modules
+    env_file:
+      - docker.env
+    networks:
+      - default_network
+  user-api:
+    build:
+      context: ./
+      dockerfile: ./apps/user-api/Dockerfile
+    # depends_on:
+    #   - redis
+    #   - postgres
+    ports:
+      - 3000:3000
+    restart: always
+    volumes:
+      - ./node_modules:/app/node_modules
+    env_file:
+      - docker.env
+    networks:
+      - default_network
+networks:
+  default_network:
+    driver: bridge
