@@ -2,6 +2,7 @@
 FROM node:20.15.0-alpine AS build
 
 WORKDIR /app
+RUN ls /app -al
 COPY ./package*.json ./
 RUN npm i
 COPY ./ ./
