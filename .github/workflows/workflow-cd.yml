@@ -54,7 +54,7 @@ jobs:
           context: ./user-api
           push: true
           tags: hoainambeco/user-api:develop-${{ env.SHORT_SHA }}
-          file: ./user-api/Dockerfile
+          file: ./apps/user-api/Dockerfile
           platforms: linux/amd64
           build-args: NODE_ENV=development
 
@@ -83,7 +83,7 @@ jobs:
           context: ./job-runner
           push: true
           tags: hoainambeco/job-runner:develop-${{ env.SHORT_SHA }}
-          file: ./job-runner/Dockerfile
+          file: ./apps/job-runner/Dockerfile
           platforms: linux/amd64
           build-args: NODE_ENV=development
 
