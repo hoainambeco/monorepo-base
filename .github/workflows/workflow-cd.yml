@@ -51,7 +51,7 @@ jobs:
       - name: Build Docker image for user-api
         uses: docker/build-push-action@v3
         with:
-          context: ./user-api
+          context: ./apps/user-api
           push: true
           tags: hoainambeco/user-api:develop-${{ env.SHORT_SHA }}
           file: ./apps/user-api/Dockerfile
@@ -80,7 +80,7 @@ jobs:
       - name: Build Docker image for job-runner
         uses: docker/build-push-action@v3
         with:
-          context: ./job-runner
+          context: ./apps/job-runner
           push: true
           tags: hoainambeco/job-runner:develop-${{ env.SHORT_SHA }}
           file: ./apps/job-runner/Dockerfile
