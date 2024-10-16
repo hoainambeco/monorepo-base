@@ -56,6 +56,9 @@ jobs:
       - name: Set Short SHA
         run: echo "SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_ENV
 
+      - name: List files
+        run: ls -la
+
       - name: Build Docker image for user-api
         uses: docker/build-push-action@v3
         with:
@@ -84,6 +87,9 @@ jobs:
 
       - name: Set Short SHA
         run: echo "SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_ENV
+
+      - name: List files
+        run: ls -la
 
       - name: Build Docker image for job-runner
         uses: docker/build-push-action@v3
