@@ -53,7 +53,7 @@ jobs:
         with:
           context: ./user-api
           push: true
-          tags: acanet/user-api:develop-${{ env.SHORT_SHA }}
+          tags: hoainambeco/user-api:develop-${{ env.SHORT_SHA }}
           file: ./user-api/Dockerfile
           platforms: linux/amd64
           build-args: NODE_ENV=development
@@ -82,7 +82,7 @@ jobs:
         with:
           context: ./job-runner
           push: true
-          tags: acanet/job-runner:develop-${{ env.SHORT_SHA }}
+          tags: hoainambeco/job-runner:develop-${{ env.SHORT_SHA }}
           file: ./job-runner/Dockerfile
           platforms: linux/amd64
           build-args: NODE_ENV=development
@@ -100,7 +100,7 @@ jobs:
       - name: Send Slack notification
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          channel-id: C07BG1VUQUE
-          slack-message: '<@${{ github.actor }}> request to deploy acanet/user-api:develop-${{ env.SHORT_SHA }} and acanet/job-runner:develop-${{ env.SHORT_SHA }} to Development'
+          channel-id: C07CURB6C5S
+          slack-message: '<@${{ github.actor }}> request to deploy hoainambeco/user-api:develop-${{ env.SHORT_SHA }} and hoainambeco/job-runner:develop-${{ env.SHORT_SHA }} to Development'
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_CICD_TOKEN }}
